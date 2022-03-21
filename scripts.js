@@ -89,6 +89,9 @@ function trocaMoeda() {
         inputValorPlaceholder.placeholder = "0,00 €"
     }
 
+    let input = document.getElementById("input")
+    input.focus()
+
     converterMoedas()
 }
 
