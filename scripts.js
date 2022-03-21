@@ -21,39 +21,32 @@ async function converterMoedas() {
     let dolarTOeuro = moedas.EURUSD.ask
     let dolarTOreal = moedas.BRLUSD.ask
     let euroTOreal = moedas.BRLEUR.ask
-    let input = document.getElementById("input").value
 
-    if (input) {
-
-        if (moedaSelecionada.value === "R$ Real Brasileiro") {
-            let inputValor = Number(document.getElementById("input").value)
-            let valorEmDolar = inputValor / realTOdolar
-            let valorEmEuro = inputValor / realTOeuro
-            valorConverter.innerHTML = inputValor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
-            valorConvertido1.innerHTML = valorEmDolar.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
-            valorConvertido2.innerHTML = valorEmEuro.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })
-        }
-
-        if (moedaSelecionada.value === "$ Dólar Americano") {
-            let inputValor = Number(document.getElementById("input").value)
-            let valorEmReal = inputValor / dolarTOreal
-            let valorEmEuro = inputValor / euroTOdolar
-            valorConverter.innerHTML = inputValor.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
-            valorConvertido1.innerHTML = valorEmReal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
-            valorConvertido2.innerHTML = valorEmEuro.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })
-        }
-
-        if (moedaSelecionada.value === "€ Euro") {
-            let inputValor = Number(document.getElementById("input").value)
-            let valorEmReal = inputValor / euroTOreal
-            let valorEmDolar = inputValor / dolarTOeuro
-            valorConverter.innerHTML = inputValor.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })
-            valorConvertido1.innerHTML = valorEmReal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
-            valorConvertido2.innerHTML = valorEmDolar.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
-        }
+    if (moedaSelecionada.value === "R$ Real Brasileiro") {
+        let inputValor = Number(document.getElementById("input").value)
+        let valorEmDolar = inputValor / realTOdolar
+        let valorEmEuro = inputValor / realTOeuro
+        valorConverter.innerHTML = inputValor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+        valorConvertido1.innerHTML = valorEmDolar.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
+        valorConvertido2.innerHTML = valorEmEuro.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })
     }
-    else {
-        alert("Informe um valor válido!")
+
+    if (moedaSelecionada.value === "$ Dólar Americano") {
+        let inputValor = Number(document.getElementById("input").value)
+        let valorEmReal = inputValor / dolarTOreal
+        let valorEmEuro = inputValor / euroTOdolar
+        valorConverter.innerHTML = inputValor.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
+        valorConvertido1.innerHTML = valorEmReal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+        valorConvertido2.innerHTML = valorEmEuro.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })
+    }
+
+    if (moedaSelecionada.value === "€ Euro") {
+        let inputValor = Number(document.getElementById("input").value)
+        let valorEmReal = inputValor / euroTOreal
+        let valorEmDolar = inputValor / dolarTOeuro
+        valorConverter.innerHTML = inputValor.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })
+        valorConvertido1.innerHTML = valorEmReal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+        valorConvertido2.innerHTML = valorEmDolar.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
     }
 }
 
@@ -83,7 +76,7 @@ function trocaMoeda() {
         labelValorConvertido1.innerHTML = "R$ 0,00"
         imgMoedaConversao2.src = "./img/euro.png"
         labelValorConvertido2.innerHTML = "0,00 €"
-        inputValorPlaceholder.placeholder = "0,00 €"
+        inputValorPlaceholder.placeholder = "$0,00"
     }
 
     if (moedaSelecionada.value === "€ Euro") {
@@ -93,7 +86,7 @@ function trocaMoeda() {
         labelValorConvertido1.innerHTML = "R$ 0,00"
         imgMoedaConversao2.src = "./img/eua.png"
         labelValorConvertido2.innerHTML = "$0,00"
-        inputValorPlaceholder.placeholder = "$ 0,00"
+        inputValorPlaceholder.placeholder = "0,00 €"
     }
 
     converterMoedas()
